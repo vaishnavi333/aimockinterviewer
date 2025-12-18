@@ -1,0 +1,45 @@
+# === Python backend ===
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+*.env
+*.ini
+*.cfg
+
+# === Jupyter Notebooks ===
+.ipynb_checkpoints/
+*.ipynb_convert/
+*.ipynb.tmp
+
+# === Common secret files ===
+*.key
+*.pem
+*.token
+*.json
+*.credentials
+*.secret
+*.yml
+*.yaml
+*.pkl
+
+# Do not ignore config templates
+!*.example.json
+!*.example.env
+!*.template
+
+# === Frontend Node.js ===
+node_modules/
+dist/
+
+# === OS / Editor ===
+.DS_Store
+.vscode/
+.idea/
+
+# === Log files ===
+*.log

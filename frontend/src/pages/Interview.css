@@ -1,0 +1,190 @@
+/* ========== Page shell (light theme, full height) ========== */
+.interview-container {
+  min-height: 100vh;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  background: #f9f9f9;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========== Header / Toolbar ========== */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.interview-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  color: #111;
+}
+
+.toolbar-right {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.chip:hover { background: #f1f1f1; }
+.chip:focus { outline: 3px solid rgba(139,185,255,.4); outline-offset: 1px; }
+
+.chip.danger { border-color: #e8a3a3; color: #b00020; }
+.chip.danger:hover { background: #fdecec; }
+
+/* ========== Scrollable chat card (fills remaining height) ========== */
+.chat-box {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fafafa;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+/* Optional: subtle scrollbar */
+.chat-box::-webkit-scrollbar { width: 10px; }
+.chat-box::-webkit-scrollbar-thumb {
+  background: #d9d9d9; border-radius: 8px; border: 2px solid #fafafa;
+}
+.chat-box::-webkit-scrollbar-track { background: #fafafa; }
+
+/* ========== Blocks (past Q/A/feedback + current) ========== */
+.chat-block {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #ccc;
+}
+.chat-block:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* NEW: consistent line spacing inside a block */
+.chat-block .row { margin: 10px 0; line-height: 1.5; }
+
+/* Score line styling (subtle) */
+.score-line {
+  display: inline-block;
+  background: #eef7ed;
+  border: 1px solid #d7edd4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.current {
+  border: 1px dashed #c9d7ff;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.pill {
+  display: inline-block;
+  background: #eef2ff;
+  border: 1px solid #c9d7ff;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.q { color: #111; }
+
+/* ========== Input + actions (inside the current card) ========== */
+.answer-box {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.answer-box::placeholder { color: #9aa0a6; }
+.answer-box:focus {
+  border-color: #8bb9ff;
+  box-shadow: 0 0 0 3px rgba(139, 185, 255, 0.25);
+}
+
+.composer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Mic button */
+.mic-btn {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.mic-btn:hover { background: #f6f6f6; }
+.mic-btn.rec {
+  border-color: #e57373;
+  background: #fdecec;
+}
+
+/* Primary actions */
+.submit-btn,
+.next-btn {
+  margin-top: 12px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color .15s ease, opacity .15s ease;
+}
+.submit-btn:hover,
+.next-btn:hover { background-color: #333; }
+.submit-btn:disabled,
+.next-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* Error line under mic when something fails */
+.rec-error {
+  color: #b00020;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Next-question prompt */
+.next-prompt { text-align: center; margin-top: 20px; }
+.next-buttons { margin-top: 12px; }
+.next-buttons button { margin: 0 8px; }
+
+/* ========== Small screens ========== */
+@media (max-width: 640px) {
+  .toolbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .chat-box { height: calc(100vh - 200px); }
+  .composer-row { flex-direction: column; align-items: stretch; }
+  .submit-btn { width: 100%; margin-right: 0; }
+}
